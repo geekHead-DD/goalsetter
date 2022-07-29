@@ -5,7 +5,7 @@ import authService from './authService'
 const user = JSON.parse(localStorage.getItem('user'))
 
 const initialState = {
-  user: user ? user : null, //if user is in local storage 
+  user: user ? user : null,
   isError: false,
   isSuccess: false,
   isLoading: false,
@@ -71,7 +71,7 @@ export const authSlice = createSlice({
       .addCase(register.rejected, (state, action) => {
         state.isLoading = false
         state.isError = true
-        state.message = action.payload //add message from rejected thunkAPI
+        state.message = action.payload
         state.user = null
       })
       .addCase(login.pending, (state) => {
